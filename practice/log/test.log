@@ -1,0 +1,7 @@
+2023-07-06 16:58:59,967 - my_logger - DEBUG - this is a debug message
+2023-07-06 16:58:59,967 - my_logger - INFO - this is an info message
+2023-07-06 16:58:59,967 - my_logger - WARNING - this is a warning message
+2023-07-06 17:14:41,070 - my_logger - DEBUG - this is a debug message
+2023-07-06 17:14:41,070 - my_logger - INFO - this is an info message
+2023-07-06 17:14:41,070 - my_logger - WARNING - this is a warning message
+2023-07-06 17:14:41,070 - my_logger - CRITICAL - fuck
