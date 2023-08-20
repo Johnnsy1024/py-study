@@ -23,10 +23,10 @@ class Solution:
                 else:
                     res_list.append(left[i])
                     i += 1
-            if i < len(left):
+            while i < len(left):
                 res_list.append(left[i])
                 i += 1
-            if j < len(right):
+            while j < len(right):
                 res_list.append(right[j])
                 j += 1
             return res_list, res
