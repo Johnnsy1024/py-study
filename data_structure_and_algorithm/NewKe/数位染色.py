@@ -1,3 +1,8 @@
+"""
+小红拿到了一个正整数x。她可以将其中一些数位染成红色。然后她想让所有染红的数位数字之和等于没染色的数位数字之和。
+她不知道能不能达成目标。你能告诉她吗？
+"""
+
 def func(x: int):
     l = [int(list(str(x))[i]) for i in range(len(list(str(x))))]
     
@@ -22,8 +27,8 @@ def func(x: int):
                 return True
             tmp.pop()
             visited.pop()
-        return False
+        return res
     
     return dfs(l, [], [])
 
-print(func(116))
+print(func(123))
