@@ -37,4 +37,3 @@ tree.right = TreeNode(20)
 tree.right.left = TreeNode(15)
 tree.right.right = TreeNode(7)
 
-print(cal_depth(tree))
