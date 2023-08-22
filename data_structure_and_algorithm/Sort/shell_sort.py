@@ -1,3 +1,7 @@
+"""
+对插入排序的改进，负责度为N*2
+"""
+
 def shell_sort(arr : list):
     if not arr: return
     n = len(arr)
