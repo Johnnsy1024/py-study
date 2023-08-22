@@ -5,3 +5,4 @@ metro_predict/data/BJSubwayAFC.csv
 metro_predict/data/BJSubwayStationCode.csv
 metro_predict/.vscode
 .vscode
+nlp/tranlation/ChineseNMT
