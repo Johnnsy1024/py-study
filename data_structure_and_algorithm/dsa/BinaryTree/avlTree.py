@@ -7,7 +7,7 @@ class AVLTree(BinarySearchTree, BaseModel):
 
     val : Union[StrictInt, StrictFloat] = None
     
-    def insert(self, root : "AVLTree", value: Union[int, float], is_root: bool=True) -> "AVLTree":
+    def insert(self, root : "AVLTree", value: Union[int, float], is_root: bool=True) -> None:
         if root.val:
             if value < root.val:
                 if root.left is None:
@@ -20,7 +20,6 @@ class AVLTree(BinarySearchTree, BaseModel):
                 else:
                     root.right.insert(root.right, value, is_root=False)
             # 判断插入新节点后的二叉树是否还是AVL树，根据情况进行旋转
-
             if is_root:
                 q = deque([root])
                 while q:
@@ -79,7 +78,7 @@ class AVLTree(BinarySearchTree, BaseModel):
         else:
             return False
     
-    def left_rotate(self, node : "AVLTree"):
+    def left_rotate(self, node : "AVLTree") -> "AVLTree":
         new_node = AVLTree(val=node.val)
         new_node.left = node.left
         new_node.right = node.right.left
@@ -88,7 +87,7 @@ class AVLTree(BinarySearchTree, BaseModel):
         node.left = new_node
         return node
     
-    def right_rotate(self, node : "AVLTree"):
+    def right_rotate(self, node : "AVLTree") -> "AVLTree":
         new_node = AVLTree(val=node.val)
         new_node.left = node.left.right
         new_node.right = node.right
@@ -102,7 +101,6 @@ if __name__ == "__main__":
     random.seed(2)
 
     tree = AVLTree()
-    nums = random.sample([i for i in range(1000)], 8)
-    for i in nums:
+    for i in range(1000):
         tree.insert(root=tree, value=i)
     print(tree.is_avg)
