@@ -1,5 +1,5 @@
 """
-对插入排序的改进，负责度为N*2
+对插入排序的改进，复杂度为N*2
 """
 
 def shell_sort(arr : list):
@@ -21,3 +21,4 @@ if __name__ == '__main__':
     print(f'arr before sorting{arr}')
     shell_sort(arr)
     print(f'arr after sorting{arr}')
+    

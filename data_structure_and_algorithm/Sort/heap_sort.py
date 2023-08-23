@@ -43,7 +43,7 @@ def heap_sort(arr):
     for i in range(n - 1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]  # 交换堆顶元素与末尾元素
         heapify(arr, i, 0)  # 对剩余元素进行堆化操作
-
+    
     return arr
 
 
