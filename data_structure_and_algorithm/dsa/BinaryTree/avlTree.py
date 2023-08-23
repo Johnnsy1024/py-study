@@ -4,8 +4,7 @@ from pydantic import BaseModel, StrictFloat, StrictInt
 from collections import deque
 
 class AVLTree(BinarySearchTree, BaseModel):
-    # def __init__(self, val=None):
-    #     super(AVLTree, self).__init__(val=val)
+
     val : Union[StrictInt, StrictFloat] = None
     
     def insert(self, root : "AVLTree", value: Union[int, float], is_root: bool=True) -> "AVLTree":
@@ -22,7 +21,6 @@ class AVLTree(BinarySearchTree, BaseModel):
                     root.right.insert(root.right, value, is_root=False)
             # 判断插入新节点后的二叉树是否还是AVL树，根据情况进行旋转
 
-                
             if is_root:
                 q = deque([root])
                 while q:
@@ -104,8 +102,7 @@ if __name__ == "__main__":
     random.seed(2)
 
     tree = AVLTree()
-    # nums = random.sample([i for i in range(1000)], 10)
-    nums = [1, 2, 3, 4, 5, 6]
+    nums = random.sample([i for i in range(1000)], 8)
     for i in nums:
         tree.insert(root=tree, value=i)
     print(tree.is_avg)
