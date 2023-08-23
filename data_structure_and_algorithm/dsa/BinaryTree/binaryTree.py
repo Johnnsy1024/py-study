@@ -22,6 +22,7 @@ class BinaryTree(BaseModel):
             return
         return self.rightChild.insertLeft(val)
 
+    @property
     def isLeaf(self)-> bool:
         return ((not self.leftChild) and (not self.rightChild))
 

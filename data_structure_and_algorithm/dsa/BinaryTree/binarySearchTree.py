@@ -134,9 +134,8 @@ class BinarySearchTree(BaseModel):
     def length(self)-> int:
         return len(self.inorder_traversal())
 
-    @property
-    def height(self)-> int:
-        if not self:
+    def height(self, node)-> int:
+        if not self.val:
             return 0
 
         left_height = self.left.height if self.left else 0
@@ -161,7 +160,8 @@ class BinarySearchTree(BaseModel):
         return not self.left and not self.right
     
 if __name__ == '__main__':
-    nums = [20,1,5,2,3,6]
-    tree = BinarySearchTree.trans_list_to_bst(nums)
-    tree = tree.delete(20)
+    tree = BinarySearchTree()
+    tree.insert(1)
+    tree.insert(2)
+    print(tree.height)
 

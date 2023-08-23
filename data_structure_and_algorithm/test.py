@@ -1,75 +1,47 @@
-# def shell_sort(arr: list):
-#     if not arr: return None
-#     n = len(arr)
-#     gap = n // 2
-    
-#     while gap > 0:
-#         for i in range(n - gap):
-#             j = i + gap
-#             # 因为希尔排序是对插入排序的改进，所以每轮是从gap下标开始
-#             while j >= gap and arr[j] < arr[j - gap]:
-#                 arr[j], arr[j - gap] = arr[j - gap], arr[j]
-#                 j -= gap
-#         gap //= 2
+import matplotlib.pyplot as plt
+import networkx as nx
 
-# def bubble_sort(arr):
-#     n = len(arr)
-#     for i in range(n - 1):
-#         for j in range(n - i - 1):
-#             if arr[j] > arr[j+1]:
-#                 arr[j], arr[j+1] = arr[j+1], arr[j]
-#     return arr       
-# def merge_sort(arr):
-#     if not arr:return []
-#     if len(arr) == 1:return arr
-#     pivot = [arr[len(arr)//2]]
-#     left = [i for i in arr if i < pivot[0]]
-#     right = [i for i in arr if i > pivot[0]]
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def plot_tree(node, pos=None, parent=None, layer=0, tree=None):
+    if pos is None:
+        pos = {node: (0.5, 1.0)}
+    else:
+        x, y = pos[parent]
+        x_shift = 0.5 / (2 ** (layer + 1))
+        if node == parent.left:
+            pos[node] = (x - x_shift, 1 - layer * 0.1)
+        else:
+            pos[node] = (x + x_shift, 1 - layer * 0.1)
     
-#     return merge_sort(left) + pivot + merge_sort(right)
-# import heapq
-# import random
-# def heapify(arr, n, i):
-#     # i：从下标i开始堆化
-#     largest = i
-#     left = 2* i + 1
-#     right = 2* i + 2
+    if tree is None:
+        tree = nx.DiGraph()
+        tree.add_node(node.val)
     
-#     if left < n and arr[left] > arr[largest]:
-#         largest = left
-#     if right < n and arr[right] > arr[largest]:
-#         largest = right
-        
-#     if largest != i:
-#         arr[largest], arr[i] = arr[i], arr[largest]
-#         heapify(arr, n, largest)
-        
-# def heap_sort(arr):
-#     for i in range(len(arr)//2 - 1, -1, -1):
-#         heapify(arr, len(arr), i)
-#     for i in range(len(arr) - 1, 0, -1):
-#         arr[i], arr[0] = arr[0], arr[i]
-#         heapify(arr, i, 0)
-# import random
-# def insert_sort(arr):
-#     for i in range(1, len(arr)):
-#         for j in range(i, 0, -1):
-#             if arr[j] < arr[j - 1]:
-#                 arr[j], arr[j - 1] = arr[j-1], arr[j]
-#             else:
-#                 break
-# nums = [random.randint(0, 7) for _ in range(6)]
-from collections import Counter
-def count_sort(arr):
-    if not arr: return 
-    min_val, max_val = min(arr), max(arr)
-    c = Counter(arr)
-    cnt = [0] * max_val
-    res = []
-    for i in range(len(cnt)):
-        cnt[i] = c[i+min_val+1]
-        res.extend()
-        
-print(nums)
-print(insert_sort(nums))
-print(nums)
+    if node.left:
+        tree.add_edge(node.val, node.left.val)
+        tree = plot_tree(node.left, pos, node, layer + 1, tree)
+    
+    if node.right:
+        tree.add_edge(node.val, node.right.val)
+        tree = plot_tree(node.right, pos, node, layer + 1, tree)
+    
+    return tree
+
+# Create a sample binary tree
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+root.right.left = TreeNode(6)
+
+# Plot the binary tree
+tree = plot_tree(root)
+pos = nx.get_node_attributes(tree, 'pos')
+nx.draw(tree, pos, with_labels=True, node_size=1000, node_color="skyblue")
+plt.show()

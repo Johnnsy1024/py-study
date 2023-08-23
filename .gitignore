@@ -6,3 +6,7 @@ metro_predict/data/BJSubwayStationCode.csv
 metro_predict/.vscode
 .vscode
 nlp/tranlation/ChineseNMT
+data_structure_and_algorithm/dsa/BinaryTree/__pycache__
+data_structure_and_algorithm/.idea
+data_structure_and_algorithm/dsa/LinkedList/__pycache__
+data_structure_and_algorithm/dsa/__pycache__
