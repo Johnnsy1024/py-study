@@ -34,3 +34,30 @@ class Solution:
                     res += 1
 
         return res
+# 更优方法
+class Solution:
+    def numsIslands(self, grid : List[List[str]]) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        res = 0
+        
+        def dfs(x, y):
+            if grid[x][y] == '1':
+                grid[x][y] = 0
+            else:
+                return 
+            if x > 0:
+                dfs(x - 1, y)
+            if x < m-1:
+                dfs(x + 1, y)
+            if y > 0:
+                dfs(x, y - 1)
+            if y < n - 1:
+                dfs(x, y + 1)
+                
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == "1":
+                    dfs(i, j)
+                    res += 1
+        return res
