@@ -5,10 +5,12 @@ class Solution:
             stack.append(num)
             while stack and stack[-1] == popped[i]:
                 stack.pop()
-                i+=1
+                i += 1
         if not stack:
             return True
         else:
             return False
+
+
 s = Solution()
-print(s.validateStackSequences([1, 2, 3, 4 ,5], [4, 5, 3, 2, 1]))
+print(s.validateStackSequences([1, 2, 3, 4, 5], [4, 5, 3, 2, 1]))
