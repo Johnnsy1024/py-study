@@ -3,7 +3,7 @@ from collections import deque
 
 class Solution1:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if len(s) <=1:
+        if len(s) <= 1:
             return len(s)
         max_length = 0
         left, right = 0, 0
@@ -20,10 +20,11 @@ class Solution1:
                 max_length = max(max_length, len(tmp))
         return max_length
 
+
 # 滑动窗口
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        if len(s) <=1:
+        if len(s) <= 1:
             return len(s)
         max_length = 0
         q = deque()
@@ -37,6 +38,8 @@ class Solution:
                 q.popleft()
 
         return max_length
+
+
 string = 'abcabcbb'
 s = Solution()
 print(s.lengthOfLongestSubstring(string))
