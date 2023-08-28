@@ -34,7 +34,7 @@ def pca_from_scratch(x: np.array, k: int) -> np.array:
     res = np.matmul(eig_vector, x.T)
     return res.T
 
-
+#  sklearn 实现pca
 def pca(x: np.array, k: int) -> np.array:
     from sklearn.decomposition import PCA
 
@@ -43,13 +43,31 @@ def pca(x: np.array, k: int) -> np.array:
     return res
 
 
-print(pca_from_scratch(x=X, k=2))
-print('\n')
-print('\n')
-print('\n')
-print(pca(x=X, k=2))
-# from sklearn.decomposition import PCA
-#
-# pca = PCA(n_components=2)
-# new_X = pca.fit_transform(X)
-# np.testing.assert_array_equal(0.0, np.matmul(new_X[:, 0], new_X[:, 1]))
+# print(pca_from_scratch(x=X, k=2))
+# print('\n')
+# print('\n')
+# print('\n')
+# print(pca(x=X, k=2))
+
+def pca_process_pic(file_name: str):
+    import cv2
+    import numpy as np
+    from sklearn.decomposition import PCA
+    import matplotlib.pyplot as plt
+
+    img_arr = cv2.imread(file_name)
+    img_c_h_w = img_arr.transpose(2, 0, 1)
+    p = PCA(n_components=128)
+    pca_img = np.zeros((3, 128, 128))
+    for i in range(len(img_c_h_w)):
+        tmp = p.fit_transform(img_c_h_w[i])
+        pca_img[i] = p.fit_transform(tmp.transpose(1, 0))
+    cv2.imshow('iamge', pca_img.transpose(1, 2, 0))
+    cv2.waitKey(5)
+    return pca_img
+
+
+if __name__ == '__main__':
+    res = pca_process_pic('img.png')
+    print(res)
+
