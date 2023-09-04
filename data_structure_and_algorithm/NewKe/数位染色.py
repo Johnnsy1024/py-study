@@ -11,7 +11,7 @@ def func(x: int):
     
     target = sum(l) // 2
     
-    def dfs(arr: list, tmp: list, visited: list):
+    def dfs(arr: list, tmp: list, visited: set):
         if sum(tmp) > target:
             return False
         if sum(tmp) == target:
@@ -20,15 +20,15 @@ def func(x: int):
         for i in range(len(arr)):
             if arr[i] in visited:
                 continue
-            visited.append(arr[i])
+            visited.add(arr[i])
             tmp.append(arr[i])
             res = dfs(arr, tmp, visited)
-            if res:
+            if res: # 如果一找到true,则层层向上传递true,结束栈底所有进程
                 return True
             tmp.pop()
-            visited.pop()
+            visited.discard(arr[i])
         return res
     
-    return dfs(l, [], [])
+    return dfs(l, [], set())
 
 print(func(123))
