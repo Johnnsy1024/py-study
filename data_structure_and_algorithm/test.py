@@ -7,12 +7,9 @@ import os
 
 os.chdir(sys.path[0])
 print(os.getcwd())
+p = sys.path[0]
 
 with open('test.txt', 'r') as f:
     print(f.readline())
     
-os.chdir('../')
-print(os.getcwd())
-
-with open('test.txt', 'r') as f:
-    print(f.readline())
+print('Hello Mac World')
