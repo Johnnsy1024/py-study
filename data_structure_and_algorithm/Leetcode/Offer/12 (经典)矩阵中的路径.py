@@ -20,13 +20,14 @@ class Solution:
                     board[nx][ny] = '*'
                     if dfs(nx, ny, index+1):
                         return True
+                    # 如果从这里（nx, ny）向下找到了则已，如果没找到，将原来标记的位置符号去掉重新来
                     board[nx][ny] = word[index]
             # 如果遍历了所有的四个方向的深度优先搜索都搜不出来，及时止损（剪枝）
             return False
 
         for m in range(row_num):
             for n in range(col_num):
-                if board[m][n] == word[0]:
+                if board[m][n] == word[0]: # 先从字母第一个位置开始搜索
                     board[m][n] = '*'
                     if dfs(m, n, 1):
                         return True

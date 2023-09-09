@@ -1,5 +1,7 @@
 from typing import List
-
+"""
+二分法：当i=j时退出循环
+"""
 class Solution:
     def minArray(self, numbers: List[int]) -> int:
         if not numbers:
