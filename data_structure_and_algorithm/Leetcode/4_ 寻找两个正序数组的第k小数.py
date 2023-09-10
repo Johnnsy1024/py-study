@@ -47,4 +47,4 @@ class Solution:
 s = Solution()
 l1 = [1, 3, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 l2 = [4, 5, 6]
-print(s.findkthminSortedArrays(l1, l2, 9))     
+print(s.findkthminSortedArrays(l1, l2, 9))
