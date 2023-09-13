@@ -1,0 +1,30 @@
+{
+    "version": 1,
+    "handlers": {
+        "file_handler": {
+            "class": "logging.FileHandler",
+            "filename": "",
+            "formatter": "file_formatter",
+            "level" : "ERROR"
+        },
+        
+        "console_handler" : {
+            "class" : "logging.StreamHandler",
+            "formatter" : "console_formatter",
+            "level" : "DEBUG"
+            
+        }
+    },
+    "formatters": {
+        "file_formatter": {
+            "format": "%(asctime)s - %(levelname)s - %(message)s"
+        },
+        "console_formatter": {
+            "format" : "%(asctime)s - %(process)d - %(levelname)s - %(message)s"
+        }
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": ["file_handler", "console_handler"]
+    }
+}
