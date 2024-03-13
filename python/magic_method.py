@@ -1,4 +1,10 @@
-from typing import Self
+"""
+Author: FaizalFeng fzx401@gmail.com
+Date: 2024-02-04 20:01:23
+LastEditors: FaizalFeng fzx401@gmail.com
+LastEditTime: 2024-03-13 18:04:21
+Copyright (c) 2024 by FaizalFeng, All Rights Reserved.
+"""
 
 
 # 单例实现

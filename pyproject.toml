@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "py-study"
+name = "pystudy"
 version = "0.1.0"
 description = ""
 authors = ["FaizalFeng <fzx401@gmail.com>"]
@@ -13,7 +13,11 @@ matplotlib = "*"
 scrapy = "*"
 fastapi = "*"
 playwright = "*"
+scipy = "*"
+openpyxl = "*"
 
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.3"
 
 [build-system]
 requires = ["poetry-core"]
