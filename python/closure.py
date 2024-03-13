@@ -29,6 +29,7 @@ def wrapper_2(n):
 
     def inner():
         nonlocal cnt  # 使用nonlocal修饰嵌套作用域变量，可以在外部函数执行结束后继续使用
+        nonlocal cnt  # 使用nonlocal修饰嵌套作用域变量，可以在外部函数执行结束后继续使用
         for i in range(n):
             if i % 2 == 0:
                 cnt += 1
