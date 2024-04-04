@@ -1,3 +1,10 @@
+/*
+ * @Author: FaizalFeng fzx401@gmail.com
+ * @Date: 2024-04-03 22:14:58
+ * @LastEditors: FaizalFeng fzx401@gmail.com
+ * @LastEditTime: 2024-04-05 00:25:28
+ * Copyright (c) 2024 by FaizalFeng, All Rights Reserved.
+ */
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -26,13 +33,14 @@ class Solution {
                 explore = explore.next;
             } // 通过explore节点探索当前
             if (cursubLinkListLength % 2 == 0) {
+                // reverse(cur);
                 for (int i = 0; i < cursubLinkListLength - 1; ++i) { // 链表反转逻辑
-                    ListNode removed = cur.next; // 将当前节点的next节点拿出来
+                    ListNode removed = cur.next; // 逐次反转
                     cur.next = removed.next;
                     removed.next = pre.next;
                     pre.next = removed;
                 }
-                // 子链表反转之后，cur指向下一组子链表的prev
+                // // 子链表反转之后，cur指向下一组子链表的prev
                 pre = cur;
                 cur = cur.next;
             } else {
@@ -43,5 +51,16 @@ class Solution {
             }
         }
         return dummy.next;
+    }
+
+    // 只是复习了递归反转链表的方式
+    public ListNode reverse(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode reversedLinkedList = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return reversedLinkedList;
     }
 }
