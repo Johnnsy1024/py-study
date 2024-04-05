@@ -16,6 +16,8 @@ playwright = "*"
 scipy = "*"
 openpyxl = "*"
 ipykernel = "^6.29.3"
+sqlalchemy = "^2.0.29"
+pymysql = "^1.1.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.3"
