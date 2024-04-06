@@ -3,7 +3,7 @@
  * @Author: FaizalFeng fzx401@gmail.com
  * @Date: 2024-04-03 22:38:41
  * @LastEditors: FaizalFeng fzx401@gmail.com
- * @LastEditTime: 2024-04-04 00:28:26
+ * @LastEditTime: 2024-04-06 11:06:56
  * Copyright (c) 2024 by FaizalFeng, All Rights Reserved.
  */
 /*
@@ -19,7 +19,7 @@ import java.util.Collection;
 class Solution {
     public int beautySum(String s) {
         int res = 0;
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) { // 遍历字符串中的字符，分别将其作为起始字符
             HashMap<Character, Integer> set = new HashMap<>();
             int maxFreq = 0;
             int minFreq = Integer.MAX_VALUE;
