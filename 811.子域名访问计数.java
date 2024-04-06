@@ -2,7 +2,7 @@
  * @Author: FaizalFeng fzx401@gmail.com
  * @Date: 2024-04-06 21:29:24
  * @LastEditors: FaizalFeng fzx401@gmail.com
- * @LastEditTime: 2024-04-06 22:24:41
+ * @LastEditTime: 2024-04-06 22:41:12
  * Copyright (c) 2024 by FaizalFeng, All Rights Reserved.
  */
 /*
@@ -86,7 +86,7 @@ class Solution {
         for (String domain : cpdomains) {
             String[] strs = domain.split(" ");
             int count = Integer.parseInt(strs[0]);
-            String[] subdomains = strs[1].split("\\.");
+            String[] subdomains = strs[1].split("\\."); // Java中\代表转义字符，故"\\."代表"\.","\."才代表正则表达式
             if (subdomains.length == 2) {
                 map.put(String.join(".", subdomains), map.getOrDefault(String.join(".", subdomains), 0) + count);
                 map.put(subdomains[1], map.getOrDefault(subdomains[1], 0) + count);
