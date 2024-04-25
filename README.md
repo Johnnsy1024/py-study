@@ -1,1 +1,1 @@
-One day one question
+## Record my python learning way
