@@ -1,21 +1,25 @@
-import time
 import threading
+import time
 
-a = {'a': []}
+a = {"a": []}
+
 
 def block():
     time.sleep(1)
     pass
 
+
 def abc():
-    if len(a['a']) == 0:
+    if len(a["a"]) == 0:
         block()
-        a['a'].append(2)
+        a["a"].append(2)
+
 
 def abc2():
-    if len(a['a']) == 0:
+    if len(a["a"]) == 0:
         block()
-        a['a'].append(3)
+        a["a"].append(3)
+
 
 t1 = threading.Thread(target=abc)
 t2 = threading.Thread(target=abc2)

@@ -1,11 +1,3 @@
-"""
-Author: FaizalFeng faizalfeng@163.com
-Date: 2024-04-25 15:16:13
-LastEditors: FaizalFeng faizalfeng@163.com
-LastEditTime: 2024-04-25 15:16:14
-Copyright (c) 2024 by FaizalFeng, All Rights Reserved.
-"""
-
 import asyncio
 
 from loguru import logger
@@ -21,7 +13,7 @@ async def perform():
     )
     talk_joke_task = asyncio.create_task(talk_joke())
     wash_hand_task = asyncio.create_task(wash_hand())
-    # await talk_joke()
+    # await talk_joke()·
     # await wash_hand()
     await talk_joke_task
     await wash_hand_task

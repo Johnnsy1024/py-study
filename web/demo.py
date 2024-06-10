@@ -29,5 +29,5 @@ async def get_model(model_name: ModelName):
 
 
 @app.put("/items/{model_name}")
-def update_model(model_name: str, model: ModelName):
+def update_model(model_name: str):
     return {"model_name": model_name}
