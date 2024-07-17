@@ -2,8 +2,10 @@
 对插入排序的改进，复杂度为N*2
 """
 
-def shell_sort(arr : list):
-    if not arr: return
+
+def shell_sort(arr: list):
+    if not arr:
+        return
     n = len(arr)
     gap = n // 2
     while gap > 0:
@@ -15,10 +17,10 @@ def shell_sort(arr : list):
         gap //= 2
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import random
+
     arr = [random.randint(0, 100) for _ in range(10)]
-    print(f'arr before sorting{arr}')
+    print(f"arr before sorting{arr}")
     shell_sort(arr)
-    print(f'arr after sorting{arr}')
-    
+    print(f"arr after sorting{arr}")

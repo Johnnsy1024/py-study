@@ -1,7 +1,9 @@
 from collections import deque
+
 """
 无重复字符的最长字串
 """
+
 
 class Solution1:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -9,7 +11,7 @@ class Solution1:
             return len(s)
         max_length = 0
         left, right = 0, 0
-        tmp = ''
+        tmp = ""
         while right < len(s):
             if s[right] not in tmp:
                 tmp += s[right]
@@ -18,7 +20,7 @@ class Solution1:
             else:
                 left += 1
                 right = left + 1
-                tmp = s[left: right]
+                tmp = s[left:right]
                 max_length = max(max_length, len(tmp))
         return max_length
 
@@ -42,6 +44,6 @@ class Solution:
         return max_length
 
 
-string = 'abcabcbb'
+string = "abcabcbb"
 s = Solution()
 print(s.lengthOfLongestSubstring(string))

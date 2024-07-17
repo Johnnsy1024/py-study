@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def floyd(graph):
     n = len(graph)
     dist = graph
@@ -11,12 +12,8 @@ def floyd(graph):
                     dist[i, j] = dist[i, k] + dist[k, j]
     return dist
 
-INF = float('inf')
-graph = np.array([
-    [0, INF, -2, INF],
-    [4, 0, 3, INF],
-    [INF, INF, 0, 2],
-    [INF, -1, INF, 0]
-])
+
+INF = float("inf")
+graph = np.array([[0, INF, -2, INF], [4, 0, 3, INF], [INF, INF, 0, 2], [INF, -1, INF, 0]])
 result = floyd(graph)
 print(result)

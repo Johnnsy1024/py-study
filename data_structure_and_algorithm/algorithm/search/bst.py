@@ -94,5 +94,5 @@ tree = bst.bstify(nums, 0, len(nums) - 1)
 # print(bst.find(12, tree))
 # new_tree = bst.insert(7, tree)
 # bst.delete(7, tree)
-# print(bst.find(7, tree))
+print(bst.find(7, tree))
 # 在arr中查找target是否存在
